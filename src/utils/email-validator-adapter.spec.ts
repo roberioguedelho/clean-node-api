@@ -10,7 +10,8 @@ jest.mock('validator', () => ({
 const makeSut = (): EmailValidatorAdapter => {
   return new EmailValidatorAdapter()
 }
-describe('Email Validator adapter', () => {
+
+describe('EmailValidator Adapter', () => {
   test('Should return false if validator returns false', () => {
     const sut = makeSut()
     jest.spyOn(validator, 'isEmail').mockReturnValueOnce(false)
