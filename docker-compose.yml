@@ -18,7 +18,7 @@ services:
       - "5050:5050"
       - "9222:9222"
     volumes: 
-      - ./dist:/usr/src/clean-node-api/dist
+      - ./dist/:/usr/src/clean-node-api/dist/
       - ./package.json:/usr/src/clean-node-api/package.json
     links:
       - mongo
