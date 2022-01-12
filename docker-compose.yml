@@ -9,14 +9,16 @@ services:
     volumes: 
       - ./mongo-data:/data/db       
   api: 
-    build: .
     container_name: api-container
-    image: clean-node-api
+    image: node:14
+    working_dir: /usr/src/clean-node-api
     restart: always
-    command: npm start
+    command: bash -c "npm install --only=prod && npm run debug"
     ports: 
       - "5050:5050"
+      - "9222:9222"
     volumes: 
       - ./dist:/usr/src/clean-node-api/dist
+      - ./package.json:/usr/src/clean-node-api/package.json
     links:
       - mongo
